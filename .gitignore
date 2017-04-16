@@ -1,1 +1,2 @@
 drone-secrets.yml
+*.env
