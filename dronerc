@@ -1,4 +1,0 @@
-REMOTE_DRIVER=bitbucket
-DATABASE_DRIVER=sqlite3
-REMOTE_CONFIG=https://bitbucket.com?client_id=cvCDexkXXCXDcjZY2k&client_secret=HU6kaFAVDX2mkNbgxQdkGzV6k66rfZyr
-DATABASE_CONFIG=/var/lib/drone/drone.sqlite
