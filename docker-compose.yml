@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  drone-server:
+    image: drone/drone:0.5
+    ports:
+      - 5000:8000
+    volumes:
+      - ./drone:/var/lib/drone/
+    restart: always
+    environment:
+      - DRONE_OPEN=true
+      - DRONE_GITHUB=true
+      - DRONE_GITHUB_CLIENT=1ec2a0af75fc8f8228aa
+      - DRONE_GITHUB_SECRET=58e4f0381754eaf87ac9c1b91bccc6d67622e961
+      - DRONE_SECRET=drone
+      - DRONE_DEBUG=true
+
+  drone-agent:
+      image: drone/drone:0.5
+      command: agent
+      restart: always
+      depends_on:
+        - drone-server
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+      environment:
+        - DRONE_SERVER=ws://drone-server:8000/ws/broker
+        - DRONE_SECRET=drone
+        - DRONE_DEBUG=true
