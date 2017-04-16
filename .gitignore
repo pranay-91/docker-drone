@@ -1,2 +1,3 @@
 drone-secrets.yml
 *.env
+*.swp
