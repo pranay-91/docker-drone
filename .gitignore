@@ -1,3 +1,4 @@
 drone-secrets.yml
 *.env
 *.swp
+*.sqlite

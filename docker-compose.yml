@@ -4,9 +4,9 @@ services:
   server:
     env_file:
       - ./drone_server.env
-    image: drone/drone:0.5
+    image: drone/drone:0.7
     ports:
-      - 5000:8000
+      - 5000:8080
     volumes:
       - ./drone:/var/lib/drone/
     restart: always
@@ -15,7 +15,7 @@ services:
   agent:
     env_file:
       - ./drone_agent.env
-    image: drone/drone:0.5
+    image: drone/drone:0.7
     command: agent
     depends_on:
       - server
