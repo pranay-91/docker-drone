@@ -6,9 +6,10 @@ services:
       - ./drone_server.env
     image: drone/drone:0.7
     ports:
-      - 5000:8080
+      - 80:8000
     volumes:
       - ./drone:/var/lib/drone/
+      - ./certs:/certs
     restart: always
 
 
